@@ -27,20 +27,11 @@ class _RegisterState extends State<Register> {
   @override
   Widget build(BuildContext context) {
     return loading ? Loading() : Scaffold(
-      backgroundColor: Colors.red,
+      backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Colors.brown,
+        backgroundColor: Colors.lightBlue,
         elevation: 0.0,
         title: Text('Sign Up for Date Ready'),
-        actions: [
-          TextButton.icon(
-            icon: Icon(Icons.person),
-            label: Text('Sign in'),
-            onPressed: () {
-              widget.toggleView();
-            },
-          )
-        ],
       ),
       body: Container(
           padding: EdgeInsets.symmetric(vertical: 20.0,horizontal: 50.0),
@@ -71,16 +62,16 @@ class _RegisterState extends State<Register> {
                 ),
                 SizedBox(height: 30,),
                 ElevatedButton(
-                  child: Text('Register'),
+                  child: Text('Complete registration'),
                   style: ButtonStyle(
                       backgroundColor: MaterialStateProperty.all(Colors.blueAccent[400]),
                       textStyle: MaterialStateProperty.all(
                           TextStyle(color: Colors.white))),
                   onPressed: () async {
-                    setState(() {
-                      loading = true;
-                    });
                     if(_formKey.currentState!.validate()){
+                      setState(() {
+                        loading = true;
+                      });
                       dynamic result = await _auth.registerWithEmailAndPassword(email, password);
                       if(result == null){
                         setState(() {
@@ -91,8 +82,10 @@ class _RegisterState extends State<Register> {
                     }
                   },
                 ),
-                SizedBox(height: 30,),
-                Text(error,style: TextStyle(color: Colors.red,fontSize: 20.0),)
+                SizedBox(height: 10,),
+                Text(error,style: TextStyle(color: Colors.red,fontSize: 20.0),),
+                SizedBox(height: 10,),
+                ElevatedButton(onPressed: () {widget.toggleView();}, child: Text('Go Back')),
               ],
             ),
           )

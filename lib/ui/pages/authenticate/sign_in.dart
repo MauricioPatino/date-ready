@@ -27,20 +27,11 @@ class _SignInState extends State<SignIn> {
   @override
   Widget build(BuildContext context) {
     return loading ? Loading() : Scaffold(
-      backgroundColor: Colors.brown,
+      backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Colors.red,
+        backgroundColor: Colors.lightBlue,
         elevation: 0.0,
         title: Text('Sign In for Date Ready'),
-        actions: [
-          TextButton.icon(
-              icon: Icon(Icons.person),
-              label: Text('Register'),
-            onPressed: () {
-              widget.toggleView();
-            },
-          )
-        ],
       ),
       body: Container(
           padding: EdgeInsets.symmetric(vertical: 20.0,horizontal: 50.0),
@@ -48,6 +39,24 @@ class _SignInState extends State<SignIn> {
           key: _formKey,
           child: Column(
             children: [
+              Expanded(
+                flex: 2,
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 10.0),
+                  child: Center(
+                    child: Container(
+                          margin: const EdgeInsets.all(20),
+                          decoration: BoxDecoration(
+                            image: DecorationImage(
+                              image: AssetImage('assets/images/date-ready.png'),
+                              fit: BoxFit.cover,
+                            ),
+                            borderRadius: BorderRadius.circular(30),
+                          ),
+                    ),
+                  ),
+                ),
+              ),
               SizedBox(height: 20,),
               TextFormField(
                 decoration:textInputDecoration.copyWith(hintText: 'Email'),
@@ -91,8 +100,11 @@ class _SignInState extends State<SignIn> {
                   }
                 },
               ),
-              SizedBox(height: 30,),
-              Text(error,style: TextStyle(color: Colors.red,fontSize: 20.0),)
+              SizedBox(height: 10,),
+              Text(error,style: TextStyle(color: Colors.red,fontSize: 20.0),),
+
+              SizedBox(height: 10,),
+              ElevatedButton(onPressed: () {widget.toggleView();}, child: Text('Register')),
             ],
           ),
         )

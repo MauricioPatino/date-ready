@@ -16,4 +16,9 @@ class DatabaseService {
       'oneLiner': oneLiner,
     });
   }
+
+  //gets profile stream
+  Stream<QuerySnapshot> get profilesData {
+    return profiles.snapshots();
+  }
 }

@@ -5,15 +5,6 @@ import 'package:provider/provider.dart';
 import 'package:ready_to_date/ui/pages/models/myUser.dart';
 import 'package:ready_to_date/ui/pages/services/auth.dart';
 import 'package:ready_to_date/ui/pages/wrapper.dart';
-import 'package:ready_to_date/ui/pages/login.dart';
-import 'package:ready_to_date/ui/pages/home.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:ready_to_date/ui/pages/forgotPassword.dart';
-import 'package:ready_to_date/ui/pages/register/signUp.dart';
-
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/services.dart';
-import 'package:provider/provider.dart';
 
 
 void main() async{

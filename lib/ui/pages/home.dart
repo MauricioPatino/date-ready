@@ -1,6 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:ready_to_date/ui/pages/utils/global_routes.dart';
+import 'package:provider/provider.dart';
+import 'package:ready_to_date/ui/pages/services/database.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);

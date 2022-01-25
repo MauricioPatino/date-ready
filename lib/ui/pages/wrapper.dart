@@ -3,7 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:ready_to_date/ui/pages/authenticate/authenticate.dart';
 import 'package:ready_to_date/ui/pages/models/myUser.dart';
 import 'package:ready_to_date/ui/pages/home.dart';
-import 'package:ready_to_date/ui/pages/login.dart';
+
 
 //this class listens for auth changes
 class Wrapper extends StatelessWidget {
