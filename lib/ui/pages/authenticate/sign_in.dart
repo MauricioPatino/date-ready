@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ready_to_date/ui/pages/services/auth.dart';
+import 'package:ready_to_date/ui/pages/shared/constants.dart';
+import 'package:ready_to_date/ui/pages/shared/loading.dart';
 
 class SignIn extends StatefulWidget {
   //const SignIn({Key? key}) : super(key: key);
@@ -14,15 +16,20 @@ class SignIn extends StatefulWidget {
 class _SignInState extends State<SignIn> {
   final AuthService _auth = AuthService();
 
+  final _formKey = GlobalKey<FormState>();
+
+  bool loading = false;
+
+  var error = '';
   var email = '';
   var password = '';
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
+    return loading ? Loading() : Scaffold(
+      backgroundColor: Colors.brown,
       appBar: AppBar(
-        backgroundColor: Colors.grey,
+        backgroundColor: Colors.red,
         elevation: 0.0,
         title: Text('Sign In for Date Ready'),
         actions: [
@@ -38,10 +45,13 @@ class _SignInState extends State<SignIn> {
       body: Container(
           padding: EdgeInsets.symmetric(vertical: 20.0,horizontal: 50.0),
         child: Form(
+          key: _formKey,
           child: Column(
             children: [
               SizedBox(height: 20,),
               TextFormField(
+                decoration:textInputDecoration.copyWith(hintText: 'Email'),
+                validator: (val) => val!.isEmpty ? 'Enter your email' : null,
                 onChanged: (val){
                   setState(() {
                     email = val;
@@ -50,6 +60,8 @@ class _SignInState extends State<SignIn> {
               ),
               SizedBox(height: 20,),
               TextFormField(
+                decoration:textInputDecoration.copyWith(hintText: 'Password'),
+                validator: (val) => val!.length < 6 ? 'Enter a password 6 characters long' : null,
                 obscureText: true,
                 onChanged: (val){
                   setState(() {
@@ -65,10 +77,22 @@ class _SignInState extends State<SignIn> {
                     textStyle: MaterialStateProperty.all(
                         TextStyle(color: Colors.white))),
                 onPressed: () async {
-                  print(email);
-                  print(password);
+                  if(_formKey.currentState!.validate()){
+                    setState(() {
+                      loading = true;
+                    });
+                   dynamic result = await _auth.signInWithEmailAndPassword(email, password);
+                    if(result == null){
+                      setState(() {
+                        error = 'Invalid email or password';
+                        loading = false;
+                      });;
+                    }
+                  }
                 },
               ),
+              SizedBox(height: 30,),
+              Text(error,style: TextStyle(color: Colors.red,fontSize: 20.0),)
             ],
           ),
         )

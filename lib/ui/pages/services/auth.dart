@@ -1,5 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:ready_to_date/ui/pages/models/myUser.dart';
+import 'package:ready_to_date/ui/pages/services/database.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class AuthService {
 
@@ -17,7 +19,7 @@ class AuthService {
         //.map((User? user) => _userFromFirebaseUser(user!));
         .map(_userFromFirebaseUser);
   }
-//sign in user
+//sign in user anonymously
   Future signInAnon() async {
     try{
       UserCredential result = await _auth.signInAnonymously();
@@ -30,8 +32,35 @@ class AuthService {
     }
   }
 
-  //sign out user
+  //sign in with email and password
+  Future signInWithEmailAndPassword(String email, String password) async {
+    try{
+      UserCredential result = await _auth.signInWithEmailAndPassword(email: email, password: password);
+      User? user = result.user;
+      return _userFromFirebaseUser(user);
+    } catch(e){
+      print(e.toString());
+      return null;
+    }
+  }
 
+  //register with email and password
+  Future registerWithEmailAndPassword(String email, String password) async {
+    try{
+      UserCredential result = await _auth.createUserWithEmailAndPassword(email: email, password: password);
+      User? user = result.user;
+
+      //creates a new document for the user with the uid
+      await DatabaseService(uid: user!.uid).updateUserData('Joey Kit', 'Foto-1', 'I like women', 'Please date me!');
+
+      return _userFromFirebaseUser(user);
+    } catch(e){
+      print(e.toString());
+      return null;
+    }
+  }
+
+  //sign out user
   Future signOut() async{
     try{
       return await _auth.signOut();
