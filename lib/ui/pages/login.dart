@@ -159,7 +159,7 @@ class _LoginState extends State<Login> {
                       if(formKey.currentState!.validate() && user != null){
                         //formKey.currentState!.validate();
                         Navigator.push(
-                            context, MaterialPageRoute(builder: (_) => home()));
+                            context, MaterialPageRoute(builder: (_) => Home()));
                       } else {
                         print('No user found ' + _emailController.text + " " + _passwordController.text);
                       }
@@ -182,13 +182,3 @@ class _LoginState extends State<Login> {
     );
   }
 }
-// mixin InputValidationMixin {
-//   bool isPasswordValid(String password) => password.length == 6;
-//
-//   bool isEmailValid(String email) {
-//     Pattern pattern =
-//         r '^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
-//     RegExp regex = new RegExp(pattern);
-//     return regex.hasMatch(email);
-//   }
-// }

@@ -126,7 +126,7 @@ class _signUpState extends State<signUp> {
                             if (formKey.currentState!.validate() && user != null) {
                               Navigator.push(
                                   context,
-                                  MaterialPageRoute(builder: (_) => home()));
+                                  MaterialPageRoute(builder: (_) => Home()));
                             } else {
                               print('No user found ' + _emailController.text +
                                   " " + _passwordController.text);

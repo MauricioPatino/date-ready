@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:ready_to_date/ui/pages/feedback.dart';
-import 'package:ready_to_date/ui/pages/explore.dart';
-import 'package:ready_to_date/ui/pages/settings.dart';
+import 'package:ready_to_date/ui/pages/services/auth.dart';
+
 
 class Settings extends StatefulWidget {
   @override
@@ -9,6 +8,8 @@ class Settings extends StatefulWidget {
 }
 
 class _Settings extends State<Settings> {
+  final AuthService _auth = AuthService();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,7 +50,12 @@ class _Settings extends State<Settings> {
                     Divider(height: 20,),
                     ElevatedButton(onPressed: (){}, child: Text('Account')),
                     Divider(height: 20,),
-                    ElevatedButton(onPressed: (){}, child: Text('Logout')),
+                    ElevatedButton(
+                        onPressed: () async {
+                            await _auth.signOut();
+                          },
+                        child: Text('Logout')
+                    ),
                     Divider(height: 20,),
                     ElevatedButton(onPressed: (){}, child: Text('Delete Account')),
                     Divider(height: 20,),

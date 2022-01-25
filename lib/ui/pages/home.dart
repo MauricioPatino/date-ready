@@ -1,26 +1,15 @@
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:ready_to_date/ui/pages/utils/global_routes.dart';
-import 'package:carousel_slider/carousel_slider.dart';
 
-import 'package:ready_to_date/ui/pages/models/model.dart';
-import 'package:swipeable_card_stack/swipeable_card_stack.dart';
-import 'package:ready_to_date/ui/pages/models/card_view.dart';
-
-import 'package:flutter_swipable/flutter_swipable.dart';
-import 'package:ready_to_date/ui/pages/feedback.dart';
-import 'package:ready_to_date/ui/pages/explore.dart';
-import 'package:ready_to_date/ui/pages/settings.dart';
-
-class home extends StatefulWidget {
-  const home({Key? key}) : super(key: key);
+class Home extends StatefulWidget {
+  const Home({Key? key}) : super(key: key);
 
   @override
   _HomePageState createState() => _HomePageState();
 }
 
-    class _HomePageState extends State<home> {
+    class _HomePageState extends State<Home> {
       int _selectedIndex = 1;
 
       late PageController _pageController;
