@@ -17,6 +17,10 @@ class DatabaseService {
     });
   }
 
+  Future <void> deleteUserData(String name, String photo, String biography, String oneLiner) async {
+    return await profiles.doc(uid).delete();
+  }
+
   //gets profile stream
   Stream<QuerySnapshot> get profilesData {
     return profiles.snapshots();

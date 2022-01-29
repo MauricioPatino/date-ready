@@ -44,7 +44,7 @@ class AuthService {
     }
   }
 
-  //register with email and password
+  //registration with email and password
   Future registerWithEmailAndPassword(String email, String password) async {
     try{
       UserCredential result = await _auth.createUserWithEmailAndPassword(email: email, password: password);
@@ -52,6 +52,7 @@ class AuthService {
 
       //creates a new document for the user with the uid
       await DatabaseService(uid: user!.uid).updateUserData('Joey Kit', 'Foto-1', 'I like women', 'Please date me!');
+
 
       return _userFromFirebaseUser(user);
     } catch(e){
@@ -69,4 +70,21 @@ class AuthService {
       return null;
     }
   }
+
+  //deletes user account
+   Future deleteAccount() async{
+    try{
+      User? user = _auth.currentUser;
+      await DatabaseService(uid: user!.uid).deleteUserData('Joey Kit', 'Foto-1', 'I like women', 'Please date me!');
+      user.delete();
+    } catch(e){
+      print(e.toString());
+      return null;
+    }
+  }
+
+  // Future<void> delete() async {
+  //   return _delegate.delete();
+  // }
+
 }

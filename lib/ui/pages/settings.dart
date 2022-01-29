@@ -57,7 +57,9 @@ class _Settings extends State<Settings> {
                         child: Text('Logout')
                     ),
                     Divider(height: 20,),
-                    ElevatedButton(onPressed: (){}, child: Text('Delete Account')),
+                    ElevatedButton(onPressed: () async{
+                      await _auth.deleteAccount();
+                    }, child: Text('Delete Account')),
                     Divider(height: 20,),
                   ],
                 ),

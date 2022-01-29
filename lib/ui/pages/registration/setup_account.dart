@@ -1,0 +1,41 @@
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:ready_to_date/ui/pages/shared/image_picker.dart';
+
+class AccountRegistration extends StatefulWidget {
+  const AccountRegistration({Key? key}) : super(key: key);
+
+  @override
+  _AccountRegistrationState createState() => _AccountRegistrationState();
+}
+
+class _AccountRegistrationState extends State<AccountRegistration> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        backgroundColor: Colors.white,
+        appBar: AppBar(
+          backgroundColor: Colors.lightBlue,
+          elevation: 0.0,
+          title: Text('Setup your dating profile!'),
+        ),
+    body: Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      //crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Column(
+            children: [
+              ElevatedButton(onPressed: () {Navigator.push(context,MaterialPageRoute(builder: (context) => CameraWidget()));}, child: Text('Upload a photo!')),
+              SizedBox(height: 10,),
+              ElevatedButton(onPressed: () {Navigator.push(context,MaterialPageRoute(builder: (context) => CameraWidget()));}, child: Text('Upload a photo!')),
+              SizedBox(height: 10,),
+              ElevatedButton(onPressed: () {Navigator.push(context,MaterialPageRoute(builder: (context) => CameraWidget()));}, child: Text('Upload a photo!')),
+              SizedBox(height: 10,),
+            ],
+          )
+        ],
+    )
+    );
+  }
+}

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:ready_to_date/ui/pages/services/auth.dart';
 import 'package:ready_to_date/ui/pages/shared/constants.dart';
 import 'package:ready_to_date/ui/pages/shared/loading.dart';
+import 'package:ready_to_date/ui/pages/registration/setup_account.dart';
 
 class Register extends StatefulWidget {
   //const Register({Key? key}) : super(key: key);
@@ -86,6 +87,8 @@ class _RegisterState extends State<Register> {
                 Text(error,style: TextStyle(color: Colors.red,fontSize: 20.0),),
                 SizedBox(height: 10,),
                 ElevatedButton(onPressed: () {widget.toggleView();}, child: Text('Go Back')),
+                SizedBox(height: 10,),
+                ElevatedButton(onPressed: () {Navigator.push(context,MaterialPageRoute(builder: (context) => const AccountRegistration()));}, child: Text('TEST IMAGE PICKER')),
               ],
             ),
           )
