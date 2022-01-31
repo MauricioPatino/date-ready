@@ -1,6 +1,6 @@
 # ready_to_date
 
-Flutter mobile application for single people looking to improve their dating profile.
+Ongoing Flutter mobile application for single people looking to improve their dating profile.
 
 ## Getting Started
 
