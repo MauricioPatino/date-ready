@@ -16,26 +16,28 @@ class _AccountRegistrationState extends State<AccountRegistration> {
     return Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(
-          backgroundColor: Colors.lightBlue,
+          backgroundColor: Colors.lightBlueAccent,
           elevation: 0.0,
           title: Text('Setup your dating profile!'),
         ),
-    body: Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      //crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Column(
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          //crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              ElevatedButton(onPressed: () {Navigator.push(context,MaterialPageRoute(builder: (context) => CameraWidget()));}, child: Text('Upload a photo!')),
-              SizedBox(height: 10,),
-              ElevatedButton(onPressed: () {Navigator.push(context,MaterialPageRoute(builder: (context) => CameraWidget()));}, child: Text('Upload a photo!')),
-              SizedBox(height: 10,),
-              ElevatedButton(onPressed: () {Navigator.push(context,MaterialPageRoute(builder: (context) => CameraWidget()));}, child: Text('Upload a photo!')),
-              SizedBox(height: 10,),
+              Column(
+                children: [
+                  //ElevatedButton(onPressed: () {Navigator.push(context,MaterialPageRoute(builder: (context) => widget._showChoiceDialog() ));}, child: Text('Upload a photo!')),
+                  SizedBox(height: 10,),
+                  ElevatedButton(onPressed: () {Navigator.push(context,MaterialPageRoute(builder: (context) => CameraWidget()));}, child: Text('Upload a photo!')),
+                  SizedBox(height: 10,),
+                  ElevatedButton(onPressed: () {Navigator.push(context,MaterialPageRoute(builder: (context) => CameraWidget()));}, child: Text('Upload a photo!')),
+                  SizedBox(height: 10,),
+                ],
+              )
             ],
-          )
-        ],
-    )
+        ),
+      ),
     );
   }
 }
