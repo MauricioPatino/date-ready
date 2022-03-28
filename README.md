@@ -2,15 +2,16 @@
 
 Ongoing Flutter mobile application for single people looking to improve their dating profile.
 
-## Getting Started
+# Date Ready Screesnhots
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+Login Screen
+<img width="359" alt="dr pic 1" src="https://user-images.githubusercontent.com/13912207/160498887-422d2c8d-deb3-4b09-b280-2a617882dac1.png">
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+Current Dating Profile
+<img width="365" alt="dr pic 2" src="https://user-images.githubusercontent.com/13912207/160498897-d13b8f6a-01e3-4de0-a2db-dc70df9c06f0.png">
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+User settings
+<img width="361" alt="dr pic 3" src="https://user-images.githubusercontent.com/13912207/160498910-1d4ad5d6-3911-43d2-9d75-c354092eb89a.png">
+
+
