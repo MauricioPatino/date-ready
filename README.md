@@ -2,7 +2,7 @@
 
 Ongoing Flutter mobile application for single people looking to improve their dating profile.
 
-# Date Ready Screesnhots
+# Date Ready Screenshots
 
 
 Login Screen
