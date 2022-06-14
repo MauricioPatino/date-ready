@@ -9,8 +9,8 @@ class FirebaseApi {
       final ref = FirebaseStorage.instance.ref(destination);
 
       return ref.putFile(file);
-    }on FirebaseException catch(e){
       return null;
+    }on FirebaseException catch(e){
     }
   }
 }

@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:ready_to_date/ui/pages/register_screens/name.dart';
 import 'package:ready_to_date/ui/pages/services/auth.dart';
 import 'package:ready_to_date/ui/pages/shared/constants.dart';
 import 'package:ready_to_date/ui/pages/shared/loading.dart';
 import 'package:ready_to_date/ui/pages/registration/setup_account.dart';
+import 'package:ready_to_date/ui/pages/register_screens/add_photo.dart';
 
 class Register extends StatefulWidget {
   //const Register({Key? key}) : super(key: key);
@@ -21,10 +23,13 @@ class _RegisterState extends State<Register> {
 
   bool loading = false;
 
+  final _email = TextEditingController();
+  final _password = TextEditingController();
 
   var email = '';
   var password = '';
   var error = '';
+
   @override
   Widget build(BuildContext context) {
     return loading ? Loading() : Scaffold(
@@ -42,7 +47,16 @@ class _RegisterState extends State<Register> {
               children: [
                 SizedBox(height: 20,),
                 TextFormField(
-                  decoration:textInputDecoration.copyWith(hintText: 'Email'),
+                  decoration: const InputDecoration(
+                    labelText: 'Email',
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: const BorderSide(width: 3, color: Colors.lightBlueAccent),
+                      //borderRadius: BorderRadius.circular(15),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: const BorderSide(width: 3, color: Colors.lightBlueAccent),
+                    ),
+                  ), //textInputDecoration.copyWith(hintText: 'Email'),
                   validator: (val) => val!.isEmpty ? 'Enter your email' : null,
                   onChanged: (val){
                     setState(() {
@@ -50,9 +64,19 @@ class _RegisterState extends State<Register> {
                     });
                   },
                 ),
-                SizedBox(height: 20,),
+                // SizedBox(height: 20,),
                 TextFormField(
-                  decoration:textInputDecoration.copyWith(hintText: 'Password'),
+                  decoration: const InputDecoration(
+                    labelText: 'Password',
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: const BorderSide(width: 3, color: Colors.lightBlueAccent),
+                      //borderRadius: BorderRadius.circular(15),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: const BorderSide(width: 3, color: Colors.lightBlueAccent),
+                    ),
+                  ),
+                  //textInputDecoration.copyWith(hintText: 'Password'),
                   validator: (val) => val!.length < 6 ? 'Enter a password 6 characters long' : null,
                   obscureText: true,
                   onChanged: (val){
@@ -63,7 +87,7 @@ class _RegisterState extends State<Register> {
                 ),
                 SizedBox(height: 30,),
                 ElevatedButton(
-                  child: Text('Complete registration'),
+                  child: Text('Continue'),
                   style: ButtonStyle(
                       backgroundColor: MaterialStateProperty.all(Colors.blueAccent[400]),
                       textStyle: MaterialStateProperty.all(
@@ -83,12 +107,19 @@ class _RegisterState extends State<Register> {
                     }
                   },
                 ),
+                SizedBox(height: 30,),
+                ElevatedButton(
+                  child: Text('NEXT PAGE TEST'),
+                  style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all(Colors.blueAccent[400]),
+                      textStyle: MaterialStateProperty.all(
+                          TextStyle(color: Colors.white))),
+                  onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context) => const AddPhoto()));},
+                ),
                 SizedBox(height: 10,),
                 Text(error,style: TextStyle(color: Colors.red,fontSize: 20.0),),
                 SizedBox(height: 10,),
                 ElevatedButton(onPressed: () {widget.toggleView();}, child: Text('Go Back')),
-                SizedBox(height: 10,),
-                ElevatedButton(onPressed: () {Navigator.push(context,MaterialPageRoute(builder: (context) => const AccountRegistration()));}, child: Text('TEST IMAGE PICKER')),
               ],
             ),
           )

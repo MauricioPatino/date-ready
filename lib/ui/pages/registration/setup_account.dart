@@ -27,10 +27,6 @@ class _AccountRegistrationState extends State<AccountRegistration> {
             children: [
               Column(
                 children: [
-                  //ElevatedButton(onPressed: () {Navigator.push(context,MaterialPageRoute(builder: (context) => widget._showChoiceDialog() ));}, child: Text('Upload a photo!')),
-                  SizedBox(height: 10,),
-                  ElevatedButton(onPressed: () {Navigator.push(context,MaterialPageRoute(builder: (context) => CameraWidget()));}, child: Text('Upload a photo!')),
-                  SizedBox(height: 10,),
                   ElevatedButton(onPressed: () {Navigator.push(context,MaterialPageRoute(builder: (context) => CameraWidget()));}, child: Text('Upload a photo!')),
                   SizedBox(height: 10,),
                 ],

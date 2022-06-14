@@ -27,8 +27,7 @@ class _FeedScreen extends State<FeedScreen> {
               Navigator.pop(context);
             },
             child: Text(
-              'THIS IS FEEDBACK NOT SURE WHAT TO PUT RIGHT NOW',
-
+              'THIS IS FEEDBACK',
               style: TextStyle(color: Colors.white, fontSize: 14),
             ),
           ),

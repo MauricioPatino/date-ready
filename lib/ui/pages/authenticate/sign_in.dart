@@ -20,6 +20,9 @@ class _SignInState extends State<SignIn> {
 
   bool loading = false;
 
+  final _email = TextEditingController();
+  final _password = TextEditingController();
+
   var error = '';
   var email = '';
   var password = '';
@@ -27,8 +30,10 @@ class _SignInState extends State<SignIn> {
   @override
   Widget build(BuildContext context) {
     return loading ? Loading() : Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: Colors.white,
       appBar: AppBar(
+
         backgroundColor: Colors.lightBlue,
         elevation: 0.0,
         title: Text('Sign In for Date Ready'),
@@ -59,7 +64,16 @@ class _SignInState extends State<SignIn> {
               ),
               SizedBox(height: 20,),
               TextFormField(
-                decoration:textInputDecoration.copyWith(hintText: 'Email'),
+                decoration: const InputDecoration(
+                  labelText: 'Email',
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: const BorderSide(width: 3, color: Colors.lightBlueAccent),
+                    //borderRadius: BorderRadius.circular(15),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: const BorderSide(width: 3, color: Colors.lightBlueAccent),
+                  ),
+                ),// textInputDecoration.copyWith(hintText: 'Email'),
                 validator: (val) => val!.isEmpty ? 'Enter your email' : null,
                 onChanged: (val){
                   setState(() {
@@ -69,7 +83,16 @@ class _SignInState extends State<SignIn> {
               ),
               SizedBox(height: 20,),
               TextFormField(
-                decoration:textInputDecoration.copyWith(hintText: 'Password'),
+                decoration: const InputDecoration(
+                  labelText: 'Password',
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: const BorderSide(width: 3, color: Colors.lightBlueAccent),
+                    //borderRadius: BorderRadius.circular(15),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: const BorderSide(width: 3, color: Colors.lightBlueAccent),
+                  ),
+                ), //textInputDecoration.copyWith(hintText: 'Password'),
                 validator: (val) => val!.length < 6 ? 'Enter a password 6 characters long' : null,
                 obscureText: true,
                 onChanged: (val){
@@ -78,7 +101,7 @@ class _SignInState extends State<SignIn> {
                   });
                 },
               ),
-              SizedBox(height: 30,),
+              SizedBox(height: 20,),
               ElevatedButton(
                 child: Text('Sign in'),
                 style: ButtonStyle(
@@ -102,7 +125,6 @@ class _SignInState extends State<SignIn> {
               ),
               SizedBox(height: 10,),
               Text(error,style: TextStyle(color: Colors.red,fontSize: 20.0),),
-
               SizedBox(height: 10,),
               ElevatedButton(onPressed: () {widget.toggleView();}, child: Text('Register')),
             ],

@@ -1,10 +1,12 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:ready_to_date/ui/pages/models/myUser.dart';
 import 'package:ready_to_date/ui/pages/feedback.dart';
 import 'package:ready_to_date/ui/pages/explore.dart';
 import 'package:ready_to_date/ui/pages/settings.dart';
 
 class Explore extends StatefulWidget {
+  late myUser user;
   @override
   _HomePageState createState() => _HomePageState();
 }

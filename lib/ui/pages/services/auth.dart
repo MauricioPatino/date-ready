@@ -5,12 +5,16 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 
 class AuthService {
 
+  //final GoogleSignIn _googleSignIn = GoogleSignIn();
+
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
   //creates user object based on User
   //User = FirebaseUser. Use User not FirebaseUser
   myUser? _userFromFirebaseUser(User? user) {
-    return user != null ? myUser(uid: user.uid) : null;
+    return user != null ? myUser(uid: user.uid, screenName: '', age: 0, bio: '', photoUrl: '') : null;
+    //return user != null ? myUser(uid: user.uid, screenName: '', age: 1, bio: '', photoUrl: '') : null;
+
   }
 
   //auth change user stream
@@ -51,7 +55,7 @@ class AuthService {
       User? user = result.user;
 
       //creates a new document for the user with the uid
-      await DatabaseService(uid: user!.uid).updateUserData('Joey Kit', 'Foto-1', 'I like women', 'Please date me!');
+      await DatabaseService(uid: user!.uid).updateUserData('Joey Scally', 'Foto-1', 'I like women', 'Please date me!');
 
 
       return _userFromFirebaseUser(user);
@@ -83,8 +87,11 @@ class AuthService {
     }
   }
 
-  // Future<void> delete() async {
-  //   return _delegate.delete();
+  //gets user account
+  // Future<myUser> getUser() async {
+  //   coUserCredential = await _auth.currentUser();
+  //   return myUser(uid: user.uid);
   // }
+  //
 
 }
